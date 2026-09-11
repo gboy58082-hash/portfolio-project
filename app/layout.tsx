@@ -1,57 +1,151 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
+const siteUrl = 'https://anshu-portfolio-snowy.vercel.app';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://anshu-growth.dev'),
-  title: 'Anshu — Digital Marketing Portfolio | SEO, Paid Media & Growth',
+  metadataBase: new URL(siteUrl),
+  title: 'Anshu — Digital Marketing Specialist & Performance SEO Expert | Growth & Paid Media',
   description:
-    'Professional portfolio of Anshu, a digital marketing professional focused on SEO, paid media, social media, analytics and e-commerce growth.',
+    'Top-rated Digital Marketing Specialist & Performance Marketer based in New Delhi. Expert in SEO, Google Ads, Meta Ads, E-commerce Scaling, Paid Media ROI, Conversion Funnel Optimization, and GA4 Data Analytics.',
   keywords: [
-    'Anshu',
-    'Digital Marketer',
-    'Performance Marketing',
-    'SEO',
-    'SEM',
-    'Paid Media',
-    'Social Media Growth',
-    'E-commerce Growth',
-    'GA4',
-    'Google Ads',
-    'Creative Production',
-    'New Delhi'
+    'Digital Marketing Specialist',
+    'Performance Marketing Expert',
+    'Best SEO Specialist Delhi',
+    'Digital Marketing Portfolio',
+    'SEO Expert India',
+    'Google Ads Specialist',
+    'Meta Ads Expert',
+    'E-commerce Growth Marketing',
+    'Paid Media Strategist',
+    'Conversion Rate Optimization CRO',
+    'Social Media Marketing Expert',
+    'Lead Generation Specialist',
+    'GA4 Web Analytics Expert',
+    'Digital Marketing Consultant New Delhi',
+    'Anshu Portfolio',
+    'Anshu Digital Marketing',
+    'Growth Marketer India'
   ],
-  authors: [{ name: 'Anshu' }],
+  authors: [{ name: 'Anshu', url: siteUrl }],
+  creator: 'Anshu',
+  publisher: 'Anshu',
+  alternates: {
+    canonical: siteUrl,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: 'Anshu — Digital Marketing Portfolio | SEO, Paid Media & Growth',
-    description: 'Turning Digital Strategies Into Growth. Performance Marketing, SEO, Paid Media, Analytics & Studio Production.',
-    url: 'https://anshu-growth.dev',
+    title: 'Anshu — Digital Marketing Specialist & Performance SEO Expert',
+    description:
+      'Turning Digital Strategies Into Scalable Growth. Specializing in SEO, Paid Media, Meta & Google Ads, Conversion Funnel Optimization, and Creative Studio Production.',
+    url: siteUrl,
     siteName: 'ANSHU / DIGITAL GROWTH LAB',
     images: [
       {
         url: '/favicon.svg',
         width: 1200,
         height: 630,
-        alt: 'Anshu Digital Marketing Portfolio'
-      }
+        alt: 'Anshu Digital Marketing & SEO Portfolio',
+      },
     ],
     locale: 'en_US',
-    type: 'website'
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Anshu — Digital Marketing Portfolio | SEO, Paid Media & Growth',
-    description: 'Digital Marketer focused on performance, consumer journeys, funnel optimization, and creative production.',
-    images: ['/favicon.svg']
+    title: 'Anshu — Digital Marketing Specialist & Performance SEO Expert',
+    description:
+      'Digital Marketer focused on Performance Marketing, SEO, Google & Meta Ads, Funnel Optimization, and E-commerce Scaling.',
+    images: ['/favicon.svg'],
+    creator: '@AnshuMarketing',
   },
   icons: {
-    icon: '/favicon.svg'
-  }
+    icon: '/favicon.svg',
+  },
+  category: 'Digital Marketing & SEO',
 };
 
 export const viewport: Viewport = {
-  themeColor: '#050505',
+  themeColor: '#0c0809',
   width: 'device-width',
-  initialScale: 1
+  initialScale: 1,
+};
+
+// JSON-LD Structured Data Schema for Search Engines (Google Knowledge Graph & Rich Snippets)
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: 'Anshu',
+      jobTitle: 'Digital Marketing Specialist & Performance SEO Expert',
+      url: siteUrl,
+      email: 'mailto:maxgamer7642@gmail.com',
+      telephone: '+919667461227',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'New Delhi',
+        addressCountry: 'India',
+      },
+      sameAs: [
+        'https://youtube.com/@anshugrowth',
+        'https://linkedin.com',
+        'https://github.com/gboy58082-hash',
+      ],
+      knowsAbout: [
+        'Digital Marketing',
+        'Search Engine Optimization (SEO)',
+        'Performance Marketing',
+        'Search Engine Marketing (SEM)',
+        'Google Ads',
+        'Meta Ads (Facebook & Instagram)',
+        'Conversion Rate Optimization (CRO)',
+        'E-commerce Growth',
+        'Google Analytics 4 (GA4)',
+        'Content Strategy',
+        'Social Media Growth',
+      ],
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${siteUrl}/#service`,
+      name: 'Anshu — Digital Growth Lab',
+      url: siteUrl,
+      priceRange: '$$',
+      telephone: '+919667461227',
+      email: 'maxgamer7642@gmail.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'New Delhi',
+        addressCountry: 'India',
+      },
+      founder: {
+        '@id': `${siteUrl}/#person`,
+      },
+      description:
+        'Professional digital marketing and SEO services including organic search ranking, paid advertising management, performance scaling, and conversion funnel optimization.',
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: 'Anshu Digital Marketing Portfolio',
+      publisher: {
+        '@id': `${siteUrl}/#person`,
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -68,9 +162,13 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@700;800;900&family=Oswald:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </head>
       <body
-        className="bg-[#050505] text-slate-100 antialiased selection:bg-cyan-500/20 selection:text-cyan-300"
+        className="bg-[#050505] text-slate-100 antialiased selection:bg-[#e51b24]/30 selection:text-white"
         suppressHydrationWarning
       >
         {children}
