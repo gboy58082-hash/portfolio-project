@@ -162,6 +162,13 @@ export default function Footer({ onOpenResume }: FooterProps) {
           </div>
         </div>
       </div>
+
+      {/* Dedicated Centered Bottom Bar at the absolute end of the page */}
+      <div className="mt-4 pt-3 pb-3 border-t border-[#261818] bg-[#020102] text-center w-full">
+        <p className="font-mono text-xs sm:text-sm text-[#ded9d2] font-bold tracking-widest uppercase">
+          &copy; 2026 portfolio
+        </p>
+      </div>
     </footer>
   );
 }
