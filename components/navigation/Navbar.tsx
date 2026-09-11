@@ -56,10 +56,19 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
             </span>
           </div>
 
-          <div className="hidden sm:flex items-center gap-5 text-xs uppercase tracking-widest text-white/90 font-medium">
+          <div className="hidden sm:flex items-center gap-4 text-xs uppercase tracking-widest text-white/90 font-medium">
             <span className="text-[#e51b24] font-bold">&bull; AVAILABLE FOR HIRE</span>
             <span className="text-zinc-600">|</span>
             <span>NEW DELHI, INDIA</span>
+            <span className="text-zinc-600">|</span>
+            <a
+              href="https://youtube.com/@anshugrowth"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#e51b24] transition-colors"
+            >
+              YOUTUBE ↗
+            </a>
             <span className="text-zinc-600">|</span>
             <a
               href="https://linkedin.com"

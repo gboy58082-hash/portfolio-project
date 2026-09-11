@@ -2,7 +2,51 @@
 
 import React, { useState } from 'react';
 import SectionHeading from '../ui/SectionHeading';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Copy, Check, ChevronRight, Star } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  CheckCircle2,
+  Copy,
+  Check,
+  ChevronRight,
+  Star,
+  Lock,
+  Eye,
+  EyeOff,
+  Loader2,
+  AlertCircle,
+} from 'lucide-react';
+
+function YoutubeIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+      <polygon points="10 15 15 12 10 9 10 15" fill="currentColor" />
+    </svg>
+  );
+}
+
+function LinkedinIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
+function InstagramIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
 
 interface ContactProps {
   onOpenResume?: () => void;
@@ -10,8 +54,15 @@ interface ContactProps {
 
 export default function Contact({ onOpenResume }: ContactProps) {
   const [copied, setCopied] = useState(false);
-  const [formSent, setFormSent] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [showPassword, setShowPassword] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    message: '',
+  });
 
   const copyEmail = () => {
     navigator.clipboard.writeText('maxgamer7642@gmail.com');
@@ -19,14 +70,28 @@ export default function Contact({ onOpenResume }: ContactProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    window.location.href = `mailto:maxgamer7642@gmail.com?subject=${subject}&body=${body}`;
-    setFormSent(true);
+    setStatus('loading');
+    setErrorMessage('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to transmit message.');
+      }
+      setStatus('success');
+      setFormData({ name: '', email: '', password: '', message: '' });
+    } catch (err: any) {
+      setStatus('error');
+      setErrorMessage(
+        err.message || 'Transmission failed. Please check your details or email directly.'
+      );
+    }
   };
 
   return (
@@ -45,22 +110,22 @@ export default function Contact({ onOpenResume }: ContactProps) {
             <div className="flex items-center gap-2 mb-6 pb-3 border-b border-[#261818]">
               <Star size={14} className="fill-[#e51b24] text-[#e51b24]" />
               <h3 className="text-2xl font-bold text-white uppercase font-['Oswald','Bebas_Neue',sans-serif] tracking-wide">
-                DIRECT CHANNELS
+                DIRECT CHANNELS & SOCIALS
               </h3>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3.5">
               {/* Email */}
-              <div className="flex items-center justify-between p-4 rounded-lg bg-[#140c0d] border border-[#261818]">
+              <div className="flex items-center justify-between p-3.5 rounded-lg bg-[#140c0d] border border-[#261818]">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-[#1f1012] border border-[#e51b24]/40 flex items-center justify-center text-[#e51b24]">
                     <Mail size={18} />
                   </div>
                   <div>
-                    <div className="font-mono text-xs text-[#e51b24] font-bold uppercase tracking-wider">EMAIL ADDRESS</div>
+                    <div className="font-mono text-[10px] text-[#e51b24] font-bold uppercase tracking-wider">EMAIL ADDRESS</div>
                     <a
                       href="mailto:maxgamer7642@gmail.com"
-                      className="text-sm font-mono text-white font-medium hover:text-[#e51b24] transition-colors"
+                      className="text-xs sm:text-sm font-mono text-white font-medium hover:text-[#e51b24] transition-colors"
                     >
                       maxgamer7642@gmail.com
                     </a>
@@ -77,16 +142,16 @@ export default function Contact({ onOpenResume }: ContactProps) {
               </div>
 
               {/* Phone */}
-              <div className="flex items-center justify-between p-4 rounded-lg bg-[#140c0d] border border-[#261818]">
+              <div className="flex items-center justify-between p-3.5 rounded-lg bg-[#140c0d] border border-[#261818]">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-[#1f1012] border border-[#e51b24]/40 flex items-center justify-center text-[#e51b24]">
                     <Phone size={18} />
                   </div>
                   <div>
-                    <div className="font-mono text-xs text-[#e51b24] font-bold uppercase tracking-wider">PHONE / WHATSAPP</div>
+                    <div className="font-mono text-[10px] text-[#e51b24] font-bold uppercase tracking-wider">PHONE / WHATSAPP</div>
                     <a
                       href="tel:+919667461227"
-                      className="text-sm font-mono text-white font-medium hover:text-[#e51b24] transition-colors"
+                      className="text-xs sm:text-sm font-mono text-white font-medium hover:text-[#e51b24] transition-colors"
                     >
                       +91 9667461227
                     </a>
@@ -98,20 +163,83 @@ export default function Contact({ onOpenResume }: ContactProps) {
                 </span>
               </div>
 
+              {/* YouTube Channel */}
+              <a
+                href="https://youtube.com/@anshugrowth"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3.5 rounded-lg bg-[#140c0d] border border-[#261818] hover:border-[#e51b24]/60 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-[#1f1012] border border-[#e51b24]/40 flex items-center justify-center text-[#e51b24] group-hover:scale-105 transition-transform">
+                    <YoutubeIcon size={18} />
+                  </div>
+                  <div>
+                    <div className="font-mono text-[10px] text-[#e51b24] font-bold uppercase tracking-wider">YOUTUBE CHANNEL</div>
+                    <span className="text-xs sm:text-sm font-mono text-white font-medium group-hover:text-[#e51b24] transition-colors">
+                      @AnshuMarketing &bull; Video Case Studies
+                    </span>
+                  </div>
+                </div>
+                <span className="text-xs font-mono text-zinc-500 group-hover:text-[#e51b24] transition-colors">↗</span>
+              </a>
+
+              {/* LinkedIn Profile */}
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3.5 rounded-lg bg-[#140c0d] border border-[#261818] hover:border-[#e51b24]/60 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-[#1f1012] border border-[#e51b24]/40 flex items-center justify-center text-[#e51b24] group-hover:scale-105 transition-transform">
+                    <LinkedinIcon size={18} />
+                  </div>
+                  <div>
+                    <div className="font-mono text-[10px] text-[#e51b24] font-bold uppercase tracking-wider">LINKEDIN NETWORK</div>
+                    <span className="text-xs sm:text-sm font-mono text-white font-medium group-hover:text-[#e51b24] transition-colors">
+                      Professional Dossier & Insights
+                    </span>
+                  </div>
+                </div>
+                <span className="text-xs font-mono text-zinc-500 group-hover:text-[#e51b24] transition-colors">↗</span>
+              </a>
+
+              {/* Instagram Profile */}
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-3.5 rounded-lg bg-[#140c0d] border border-[#261818] hover:border-[#e51b24]/60 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-[#1f1012] border border-[#e51b24]/40 flex items-center justify-center text-[#e51b24] group-hover:scale-105 transition-transform">
+                    <InstagramIcon size={18} />
+                  </div>
+                  <div>
+                    <div className="font-mono text-[10px] text-[#e51b24] font-bold uppercase tracking-wider">INSTAGRAM PROFILE</div>
+                    <span className="text-xs sm:text-sm font-mono text-white font-medium group-hover:text-[#e51b24] transition-colors">
+                      Behind The Scenes & Creative Shoots
+                    </span>
+                  </div>
+                </div>
+                <span className="text-xs font-mono text-zinc-500 group-hover:text-[#e51b24] transition-colors">↗</span>
+              </a>
+
               {/* Location */}
-              <div className="flex items-center gap-3 p-4 rounded-lg bg-[#140c0d] border border-[#261818]">
+              <div className="flex items-center gap-3 p-3.5 rounded-lg bg-[#140c0d] border border-[#261818]">
                 <div className="w-10 h-10 rounded-lg bg-[#1f1012] border border-[#e51b24]/40 flex items-center justify-center text-[#e51b24]">
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <div className="font-mono text-xs text-[#e51b24] font-bold uppercase tracking-wider">BASE LOCATION</div>
-                  <div className="text-sm font-mono text-white font-medium">New Delhi, India</div>
+                  <div className="font-mono text-[10px] text-[#e51b24] font-bold uppercase tracking-wider">BASE LOCATION</div>
+                  <div className="text-xs sm:text-sm font-mono text-white font-medium">New Delhi, India</div>
                 </div>
               </div>
             </div>
 
             {/* Quick Action */}
-            <div className="mt-8 pt-6 border-t border-[#261818] flex items-center justify-between">
+            <div className="mt-6 pt-5 border-t border-[#261818] flex items-center justify-between">
               <span className="text-xs font-mono text-white font-medium">Need a formal CV?</span>
               {onOpenResume && (
                 <button
@@ -125,7 +253,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
           </div>
         </div>
 
-        {/* Message Form */}
+        {/* Message Form with Password */}
         <div className="lg:col-span-6">
           <div className="p-8 rounded-xl bg-[#0f0a0b] border border-[#261818] shadow-2xl text-left">
             <div className="flex items-center gap-2 mb-6 pb-3 border-b border-[#261818]">
@@ -168,6 +296,48 @@ export default function Contact({ onOpenResume }: ContactProps) {
                 />
               </div>
 
+              {/* Password / Access Key Field */}
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="font-mono text-xs text-white uppercase tracking-wider font-bold flex items-center gap-1.5">
+                    <Lock size={12} className="text-[#e51b24]" />
+                    <span>PASSWORD / ACCESS KEY</span>
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="text-[11px] font-mono text-zinc-400 hover:text-[#e51b24] flex items-center gap-1 cursor-pointer transition-colors"
+                  >
+                    {showPassword ? (
+                      <>
+                        <EyeOff size={13} />
+                        <span>HIDE</span>
+                      </>
+                    ) : (
+                      <>
+                        <Eye size={13} />
+                        <span>SHOW</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    required
+                    autoComplete="current-password"
+                    suppressHydrationWarning
+                    value={formData.password}
+                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                    placeholder="Enter security password or client code"
+                    className="w-full bg-[#140c0d] border border-[#261818] focus:border-[#e51b24] text-xs font-mono text-white px-4 py-3 rounded outline-none transition-colors pr-10"
+                  />
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-600 pointer-events-none">
+                    <Lock size={14} />
+                  </div>
+                </div>
+              </div>
+
               <div>
                 <label className="font-mono text-xs text-white uppercase tracking-wider block mb-1.5 font-bold">
                   PROJECT OR ROLE BRIEF
@@ -185,17 +355,34 @@ export default function Contact({ onOpenResume }: ContactProps) {
 
               <button
                 type="submit"
-                className="w-full rdr-btn-primary justify-center cursor-pointer mt-2"
+                disabled={status === 'loading'}
+                className="w-full rdr-btn-primary justify-center cursor-pointer mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span>TRANSMIT INQUIRY</span>
-                <ChevronRight size={16} />
+                {status === 'loading' ? (
+                  <>
+                    <Loader2 size={16} className="animate-spin" />
+                    <span>TRANSMITTING INQUIRY...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>TRANSMIT INQUIRY</span>
+                    <ChevronRight size={16} />
+                  </>
+                )}
               </button>
             </form>
 
-            {formSent && (
-              <div className="mt-4 p-3 rounded bg-[#1f1012] border border-[#e51b24]/40 flex items-center gap-2 text-xs font-mono text-[#e51b24]">
-                <CheckCircle2 size={14} />
-                <span>Default mail client triggered. Ready to send!</span>
+            {status === 'success' && (
+              <div className="mt-4 p-3.5 rounded bg-[#1f1012] border border-[#e51b24]/60 flex items-center gap-2.5 text-xs font-mono text-white animate-in fade-in">
+                <CheckCircle2 size={16} className="text-[#e51b24] shrink-0" />
+                <span>Inquiry successfully transmitted! I will respond to your email shortly.</span>
+              </div>
+            )}
+
+            {status === 'error' && (
+              <div className="mt-4 p-3.5 rounded bg-[#2a0f12] border border-red-500/60 flex items-center gap-2.5 text-xs font-mono text-red-200 animate-in fade-in">
+                <AlertCircle size={16} className="text-red-400 shrink-0" />
+                <span>{errorMessage}</span>
               </div>
             )}
           </div>

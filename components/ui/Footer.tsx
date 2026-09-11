@@ -144,10 +144,14 @@ export default function Footer({ onOpenResume }: FooterProps) {
 
         {/* Bottom Bar: Copyright & Rockstar-style Monogram */}
         <div className="pt-3 sm:pt-4 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-white/80 font-medium">
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <a href="mailto:maxgamer7642@gmail.com" className="hover:text-[#e51b24] transition-colors">maxgamer7642@gmail.com</a>
             <span>+91 9667461227</span>
             <span>New Delhi, India</span>
+            <span className="text-zinc-600 hidden sm:inline">|</span>
+            <a href="https://youtube.com/@anshugrowth" target="_blank" rel="noopener noreferrer" className="hover:text-[#e51b24] transition-colors">YouTube ↗</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#e51b24] transition-colors">LinkedIn ↗</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#e51b24] transition-colors">Instagram ↗</a>
           </div>
 
           <div className="flex items-center gap-3">
