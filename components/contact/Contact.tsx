@@ -202,7 +202,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
 
               {/* Instagram Profile */}
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/nextgen.marketing__011?stkn=MWY1OHE5ZGpmOHJ3dA=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between p-3.5 rounded-lg bg-[#140c0d] border border-[#261818] hover:border-[#e51b24]/60 transition-all group"
@@ -214,7 +214,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
                   <div>
                     <div className="font-mono text-[10px] text-[#e51b24] font-bold uppercase tracking-wider">INSTAGRAM PROFILE</div>
                     <span className="text-xs sm:text-sm font-mono text-white font-medium group-hover:text-[#e51b24] transition-colors">
-                      Behind The Scenes & Creative Shoots
+                      @nextgen.marketing__011 &bull; Behind The Scenes & Creative Shoots
                     </span>
                   </div>
                 </div>

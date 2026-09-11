@@ -103,6 +103,7 @@ const structuredData = {
       },
       sameAs: [
         'https://youtube.com/@nextgenmarketing-q1b?si=jjW4_LqNbZthXP5K',
+        'https://www.instagram.com/nextgen.marketing__011?stkn=MWY1OHE5ZGpmOHJ3dA==',
         'https://linkedin.com',
         'https://github.com/gboy58082-hash',
       ],
