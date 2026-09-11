@@ -48,6 +48,8 @@ function InstagramIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+import ForgotPasswordModal from './ForgotPasswordModal';
+
 interface ContactProps {
   onOpenResume?: () => void;
 }
@@ -55,6 +57,7 @@ interface ContactProps {
 export default function Contact({ onOpenResume }: ContactProps) {
   const [copied, setCopied] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isForgotModalOpen, setIsForgotModalOpen] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
@@ -303,23 +306,33 @@ export default function Contact({ onOpenResume }: ContactProps) {
                     <Lock size={12} className="text-[#e51b24]" />
                     <span>PASSWORD / ACCESS KEY</span>
                   </label>
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="text-[11px] font-mono text-zinc-400 hover:text-[#e51b24] flex items-center gap-1 cursor-pointer transition-colors"
-                  >
-                    {showPassword ? (
-                      <>
-                        <EyeOff size={13} />
-                        <span>HIDE</span>
-                      </>
-                    ) : (
-                      <>
-                        <Eye size={13} />
-                        <span>SHOW</span>
-                      </>
-                    )}
-                  </button>
+                  <div className="flex items-center gap-2.5">
+                    <button
+                      type="button"
+                      onClick={() => setIsForgotModalOpen(true)}
+                      className="text-[11px] font-mono text-[#e51b24] hover:text-[#ff3a44] hover:underline cursor-pointer transition-colors font-bold"
+                    >
+                      FORGOT?
+                    </button>
+                    <span className="text-zinc-700">|</span>
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="text-[11px] font-mono text-zinc-400 hover:text-[#e51b24] flex items-center gap-1 cursor-pointer transition-colors"
+                    >
+                      {showPassword ? (
+                        <>
+                          <EyeOff size={13} />
+                          <span>HIDE</span>
+                        </>
+                      ) : (
+                        <>
+                          <Eye size={13} />
+                          <span>SHOW</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </div>
                 <div className="relative">
                   <input
@@ -335,6 +348,17 @@ export default function Contact({ onOpenResume }: ContactProps) {
                   <div className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-600 pointer-events-none">
                     <Lock size={14} />
                   </div>
+                </div>
+                <div className="flex justify-between items-center mt-1.5 px-0.5">
+                  <span className="text-[10px] font-mono text-zinc-500">Security verification required</span>
+                  <button
+                    type="button"
+                    onClick={() => setIsForgotModalOpen(true)}
+                    className="text-[11px] font-mono text-zinc-400 hover:text-[#e51b24] flex items-center gap-1 cursor-pointer transition-colors"
+                  >
+                    <span>Forgot Password?</span>
+                    <span className="text-[#e51b24] font-bold underline">Get OTP Code &rarr;</span>
+                  </button>
                 </div>
               </div>
 
@@ -388,6 +412,17 @@ export default function Contact({ onOpenResume }: ContactProps) {
           </div>
         </div>
       </div>
+
+      {/* Forgot Password Modal with Automatic OTP */}
+      <ForgotPasswordModal
+        isOpen={isForgotModalOpen}
+        onClose={() => setIsForgotModalOpen(false)}
+        initialEmail={formData.email}
+        onPasswordReset={(newPass) => {
+          setFormData((prev) => ({ ...prev, password: newPass }));
+          setStatus('idle');
+        }}
+      />
     </section>
   );
 }
