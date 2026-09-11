@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="seoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07090d"/>
+      <stop offset="50%" stop-color="#0a0f18"/>
+      <stop offset="100%" stop-color="#141926"/>
+    </linearGradient>
+    <linearGradient id="cyanLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+    <linearGradient id="seoFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00f2fe" stop-opacity="0.0"/>
+    </linearGradient>
+    <pattern id="seoGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#142236" stroke-width="0.8" stroke-opacity="0.5"/>
+    </pattern>
+    <filter id="cyanGlowEffect" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#seoBg)"/>
+  <rect width="1200" height="750" fill="url(#seoGrid)"/>
+
+  <!-- Header Bar -->
+  <g transform="translate(60, 50)">
+    <rect x="0" y="0" width="180" height="32" rx="4" fill="#0c1829" stroke="#00f2fe" stroke-width="1.2"/>
+    <text x="14" y="21" font-family="'Space Grotesk', monospace" font-size="12" font-weight="700" fill="#00f2fe" letter-spacing="2">SEO ARCHITECTURE</text>
+    
+    <text x="195" y="23" font-family="'Oswald', sans-serif" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="1">BUILDING BRAND PRESENCE &amp; 90-DAY ORGANIC ROADMAP</text>
+    <text x="195" y="45" font-family="'Space Grotesk', monospace" font-size="12" fill="#889bb8">WORDPRESS • TECHNICAL CWV • SCREAMING FROG HYGIENE • GSC INDEXING</text>
+
+    <!-- Top Right Status -->
+    <rect x="890" y="2" width="190" height="42" rx="6" fill="#0b1424" stroke="#193354" stroke-width="1.5"/>
+    <text x="910" y="22" font-family="'Space Grotesk', monospace" font-size="10" fill="#889bb8">CRAWL HEALTH SCORE</text>
+    <text x="910" y="38" font-family="'Oswald', sans-serif" font-size="16" font-weight="700" fill="#10b981">100% ZERO ERRORS</text>
+  </g>
+
+  <!-- 4 Metrics Row -->
+  <g transform="translate(60, 135)">
+    <g transform="translate(0, 0)">
+      <rect width="255" height="110" rx="8" fill="#0b1322" stroke="#162744" stroke-width="1.2"/>
+      <rect x="0" y="0" width="5" height="110" rx="3" fill="#00f2fe"/>
+      <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#889bb8">CORE WEB VITALS</text>
+      <text x="20" y="62" font-family="'Oswald', sans-serif" font-size="28" font-weight="700" fill="#ffffff">99/100</text>
+      <text x="20" y="88" font-family="'Space Grotesk', monospace" font-size="11" fill="#00f2fe" font-weight="600">LCP 0.8s • CLS 0.01</text>
+    </g>
+
+    <g transform="translate(275, 0)">
+      <rect width="255" height="110" rx="8" fill="#0b1322" stroke="#162744" stroke-width="1.2"/>
+      <rect x="0" y="0" width="5" height="110" rx="3" fill="#10b981"/>
+      <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#889bb8">INDEXING VELOCITY</text>
+      <text x="20" y="62" font-family="'Oswald', sans-serif" font-size="28" font-weight="700" fill="#ffffff">VERIFIED</text>
+      <text x="20" y="88" font-family="'Space Grotesk', monospace" font-size="11" fill="#10b981" font-weight="600">GSC &amp; Site Kit Active</text>
+    </g>
+
+    <g transform="translate(550, 0)">
+      <rect width="255" height="110" rx="8" fill="#0b1322" stroke="#162744" stroke-width="1.2"/>
+      <rect x="0" y="0" width="5" height="110" rx="3" fill="#a855f7"/>
+      <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#889bb8">CONTENT SILOS</text>
+      <text x="20" y="62" font-family="'Oswald', sans-serif" font-size="28" font-weight="700" fill="#ffffff">3 PILLARS</text>
+      <text x="20" y="88" font-family="'Space Grotesk', monospace" font-size="11" fill="#a855f7" font-weight="600">12 Long-Tail Clusters</text>
+    </g>
+
+    <g transform="translate(825, 0)">
+      <rect width="255" height="110" rx="8" fill="#0b1322" stroke="#162744" stroke-width="1.2"/>
+      <rect x="0" y="0" width="5" height="110" rx="3" fill="#e51b24"/>
+      <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#889bb8">KEYWORD DIFFICULTY</text>
+      <text x="20" y="62" font-family="'Oswald', sans-serif" font-size="28" font-weight="700" fill="#ffffff">&lt; 30 KD</text>
+      <text x="20" y="88" font-family="'Space Grotesk', monospace" font-size="11" fill="#e51b24" font-weight="600">High-Intent Fast Rank</text>
+    </g>
+  </g>
+
+  <!-- Large Organic Growth Curve Chart -->
+  <g transform="translate(60, 275)">
+    <rect width="1080" height="400" rx="10" fill="#09101d" stroke="#142742" stroke-width="1.4"/>
+    
+    <text x="35" y="45" font-family="'Oswald', sans-serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="1">ORGANIC SEARCH TRAFFIC &amp; KEYWORD TRAJECTORY</text>
+    <text x="35" y="65" font-family="'Space Grotesk', monospace" font-size="11" fill="#889bb8">GOOGLE SEARCH CONSOLE CLICKS &amp; IMPRESSIONS GROWTH (MONTH 1 TO 3)</text>
+
+    <!-- Grid lines -->
+    <line x1="35" y1="100" x2="1045" y2="100" stroke="#102036" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="35" y1="165" x2="1045" y2="165" stroke="#102036" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="35" y1="230" x2="1045" y2="230" stroke="#102036" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="35" y1="295" x2="1045" y2="295" stroke="#102036" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="35" y1="345" x2="1045" y2="345" stroke="#1c375c" stroke-width="1.5"/>
+
+    <path d="M 60 345 L 60 330 C 180 320, 280 300, 420 240 C 560 180, 700 130, 860 85 C 940 60, 990 55, 1020 50 L 1020 345 Z" fill="url(#seoFill)"/>
+    <path d="M 60 330 C 180 320, 280 300, 420 240 C 560 180, 700 130, 860 85 C 940 60, 990 55, 1020 50" fill="none" stroke="url(#cyanLine)" stroke-width="4" filter="url(#cyanGlowEffect)"/>
+
+    <circle cx="420" cy="240" r="6" fill="#00f2fe" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="700" cy="130" r="6" fill="#00f2fe" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="1020" cy="50" r="7" fill="#00f2fe" stroke="#ffffff" stroke-width="2" filter="url(#cyanGlowEffect)"/>
+
+    <g transform="translate(900, 25)">
+      <rect width="145" height="34" rx="4" fill="#0b1b30" stroke="#00f2fe" stroke-width="1.2"/>
+      <text x="12" y="16" font-family="'Space Grotesk', monospace" font-size="9" fill="#889bb8">ORGANIC TRAFFIC</text>
+      <text x="12" y="28" font-family="'Oswald', sans-serif" font-size="13" font-weight="700" fill="#ffffff">+340% SURGE</text>
+    </g>
+
+    <text x="60" y="372" font-family="'Space Grotesk', monospace" font-size="11" fill="#586f8f">MONTH 1: CWV AUDIT</text>
+    <text x="320" y="372" font-family="'Space Grotesk', monospace" font-size="11" fill="#586f8f">MONTH 2: CONTENT SILOS</text>
+    <text x="660" y="372" font-family="'Space Grotesk', monospace" font-size="11" fill="#586f8f">MONTH 3: BACKLINK OUTREACH</text>
+    <text x="960" y="372" font-family="'Space Grotesk', monospace" font-size="11" fill="#00f2fe" font-weight="700">PAGE 1 RANKINGS</text>
+  </g>
+</svg>

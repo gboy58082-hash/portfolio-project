@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-deep: #080606;
+    --bg-primary: #0c0909;
+    --bg-surface: #140f0f;
+    --bg-card: rgba(26, 18, 18, 0.7);
+    --bg-card-hover: rgba(38, 26, 26, 0.9);
+
+    /* Rockstar Red Dead Redemption II Crimson Palette */
+    --accent-red: #e51b24;
+    --accent-red-hover: #ff2a34;
+    --accent-red-dark: #8a0c12;
+    --accent-gold: #c89b3c;
+    --text-cream: #ffffff;
+    --text-muted: #e2ded7;
+
+    --border-subtle: rgba(229, 27, 36, 0.25);
+    --border-hover: rgba(229, 27, 36, 0.65);
+
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Bebas Neue', 'Oswald', sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: var(--bg-deep);
+  }
+
+  body {
+    background-color: var(--bg-deep);
+    color: var(--text-cream);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    line-height: 1.6;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(229, 27, 36, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 80% 40%, rgba(138, 12, 18, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(229, 27, 36, 0.06) 0%, transparent 55%),
+      linear-gradient(180deg, #080606 0%, #0d0909 50%, #050404 100%);
+    background-attachment: fixed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Custom Red Dead Redemption II Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080606;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3a1517;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-red);
+  }
+}
+
+/* RDR2 Cinematic Card Styles */
+.rdr-card {
+  background: rgba(18, 13, 13, 0.85);
+  border: 1px solid rgba(229, 27, 36, 0.18);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.rdr-card:hover {
+  background: rgba(28, 19, 19, 0.95);
+  border-color: rgba(229, 27, 36, 0.6);
+  box-shadow: 0 10px 30px -5px rgba(229, 27, 36, 0.2);
+}
+
+/* Red Rockstar Buttons */
+.rdr-btn-primary {
+  background: linear-gradient(180deg, #e51b24 0%, #b81018 100%);
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(229, 27, 36, 0.35);
+  border: 1px solid #ff444c;
+}
+
+.rdr-btn-primary:hover {
+  background: linear-gradient(180deg, #ff2a34 0%, #cf121b 100%);
+  box-shadow: 0 6px 25px rgba(229, 27, 36, 0.55);
+  transform: translateY(-1px);
+}
+
+.rdr-btn-secondary {
+  background: rgba(18, 13, 13, 0.8);
+  color: #f7f4ef;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.rdr-btn-secondary:hover {
+  background: rgba(229, 27, 36, 0.15);
+  border-color: var(--accent-red);
+  color: #ffffff;
+}
+
+/* Rockstar Red Dead Redemption II Typography Hierarchy */
+.rdr-title-western {
+  font-family: 'Bebas Neue', 'Oswald', -apple-system, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+  line-height: 0.95;
+}
+
+.rdr-heading-serif {
+  font-family: 'Cinzel', 'Bebas Neue', Georgia, serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
+}
+
+.rdr-subheading {
+  font-family: 'Oswald', 'Bebas Neue', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f7f4ef;
+}
+
+.rdr-red-title {
+  color: #e51b24;
+  text-shadow: 0 0 20px rgba(229, 27, 36, 0.5);
+}
+
+.rdr-tag {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #e51b24;
+}
+
+/* Section Containers */
+.section-wrapper {
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .section-wrapper {
+    padding: 5rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-wrapper {
+    padding: 6rem 3.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .section-wrapper {
+    padding: 6.5rem 5rem;
+  }
+}
+
+/* Custom Red Follower Cursor */
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--accent-red);
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid rgba(229, 27, 36, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  color: #e51b24;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+.cursor-hover .custom-cursor-ring {
+  width: 48px;
+  height: 48px;
+  border-color: var(--accent-red);
+  background-color: rgba(229, 27, 36, 0.12);
+}
+
+.cursor-project .custom-cursor-ring {
+  width: 130px;
+  height: 130px;
+  border-color: var(--accent-red);
+  background-color: rgba(18, 12, 12, 0.95);
+  box-shadow: 0 0 25px rgba(229, 27, 36, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .custom-cursor-dot, .custom-cursor-ring {
+    display: none !important;
+  }
+}

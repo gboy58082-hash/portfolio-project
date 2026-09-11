@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d0708"/>
+      <stop offset="50%" stop-color="#14090b"/>
+      <stop offset="100%" stop-color="#1f0a0e"/>
+    </linearGradient>
+    <linearGradient id="redGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e51b24" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ff4757" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+    <linearGradient id="areaFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e51b24" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e51b24" stop-opacity="0.0"/>
+    </linearGradient>
+    <linearGradient id="cyanFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#00f2fe" stop-opacity="0.0"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2a1417" stroke-width="0.8" stroke-opacity="0.4"/>
+    </pattern>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#bgGrad)"/>
+  <rect width="1200" height="750" fill="url(#grid)"/>
+
+  <!-- Subtle Vignette -->
+  <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+    <stop offset="40%" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="0.8"/>
+  </radialGradient>
+  <rect width="1200" height="750" fill="url(#vignette)"/>
+
+  <!-- Header Bar -->
+  <g transform="translate(60, 50)">
+    <!-- Brand Tag -->
+    <rect x="0" y="0" width="180" height="32" rx="4" fill="#201013" stroke="#e51b24" stroke-width="1.2"/>
+    <text x="14" y="21" font-family="'Space Grotesk', monospace" font-size="12" font-weight="700" fill="#e51b24" letter-spacing="2">GOOGLE ADS LAB</text>
+    
+    <text x="195" y="23" font-family="'Oswald', sans-serif" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="1">₹10 LAKH FULL-FUNNEL PERFORMANCE CAMPAIGN</text>
+    <text x="195" y="45" font-family="'Space Grotesk', monospace" font-size="12" fill="#a69e94">REGIONAL EXPANSION • STAG ARCHITECTURE • 500+ NEGATIVE TERMS</text>
+
+    <!-- Top Right Budget Pill -->
+    <rect x="880" y="2" width="200" height="42" rx="6" fill="#140a0c" stroke="#33181c" stroke-width="1.5"/>
+    <text x="900" y="22" font-family="'Space Grotesk', monospace" font-size="10" fill="#a69e94">TOTAL BUDGET ALLOCATED</text>
+    <text x="900" y="38" font-family="'Oswald', sans-serif" font-size="16" font-weight="700" fill="#00f2fe">₹10,00,000 INR</text>
+  </g>
+
+  <!-- 4 Budget Allocation KPI Cards -->
+  <g transform="translate(60, 135)">
+    <!-- Card 1: Core Search -->
+    <g transform="translate(0, 0)">
+      <rect width="255" height="110" rx="8" fill="#140a0c" stroke="#361a1e" stroke-width="1.2"/>
+      <rect x="0" y="0" width="5" height="110" rx="3" fill="#e51b24"/>
+      <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#a69e94">CORE SEARCH (STAG)</text>
+      <text x="20" y="62" font-family="'Oswald', sans-serif" font-size="28" font-weight="700" fill="#ffffff">₹5,00,000</text>
+      <text x="20" y="88" font-family="'Space Grotesk', monospace" font-size="11" fill="#e51b24" font-weight="600">50% Share • High-Intent Leads</text>
+    </g>
+
+    <!-- Card 2: Performance Max -->
+    <g transform="translate(275, 0)">
+      <rect width="255" height="110" rx="8" fill="#140a0c" stroke="#361a1e" stroke-width="1.2"/>
+      <rect x="0" y="0" width="5" height="110" rx="3" fill="#00f2fe"/>
+      <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#a69e94">PERFORMANCE MAX</text>
+      <text x="20" y="62" font-family="'Oswald', sans-serif" font-size="28" font-weight="700" fill="#ffffff">₹2,50,000</text>
+      <text x="20" y="88" font-family="'Space Grotesk', monospace" font-size="11" fill="#00f2fe" font-weight="600">25% Share • Smart Automation</text>
+    </g>
+
+    <!-- Card 3: Display & YouTube -->
+    <g transform="translate(550, 0)">
+      <rect width="255" height="110" rx="8" fill="#140a0c" stroke="#361a1e" stroke-width="1.2"/>
+      <rect x="0" y="0" width="5" height="110" rx="3" fill="#ff4757"/>
+      <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#a69e94">DISPLAY & BUMPERS</text>
+      <text x="20" y="62" font-family="'Oswald', sans-serif" font-size="28" font-weight="700" fill="#ffffff">₹1,50,000</text>
+      <text x="20" y="88" font-family="'Space Grotesk', monospace" font-size="11" fill="#ff4757" font-weight="600">15% Share • Brand Saturation</text>
+    </g>
+
+    <!-- Card 4: Remarketing -->
+    <g transform="translate(825, 0)">
+      <rect width="255" height="110" rx="8" fill="#140a0c" stroke="#361a1e" stroke-width="1.2"/>
+      <rect x="0" y="0" width="5" height="110" rx="3" fill="#10b981"/>
+      <text x="20" y="28" font-family="'Space Grotesk', monospace" font-size="11" fill="#a69e94">GA4 REMARKETING</text>
+      <text x="20" y="62" font-family="'Oswald', sans-serif" font-size="28" font-weight="700" fill="#ffffff">₹1,00,000</text>
+      <text x="20" y="88" font-family="'Space Grotesk', monospace" font-size="11" fill="#10b981" font-weight="600">10% Share • High-Intent Retarget</text>
+    </g>
+  </g>
+
+  <!-- Large Interactive Chart Panel -->
+  <g transform="translate(60, 275)">
+    <rect width="1080" height="400" rx="10" fill="#12090b" stroke="#30161a" stroke-width="1.4"/>
+    
+    <!-- Chart Header -->
+    <text x="35" y="45" font-family="'Oswald', sans-serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="1">CONVERSION VELOCITY & ROAS CLIMB</text>
+    <text x="35" y="65" font-family="'Space Grotesk', monospace" font-size="11" fill="#a69e94">WEEK-OVER-WEEK CPA REDUCTION & CONVERSION SURGE</text>
+
+    <!-- Chart Legend -->
+    <g transform="translate(780, 32)">
+      <circle cx="10" cy="10" r="5" fill="#e51b24"/>
+      <text x="22" y="14" font-family="'Space Grotesk', monospace" font-size="11" fill="#ffffff">Conversions</text>
+      <circle cx="130" cy="10" r="5" fill="#00f2fe"/>
+      <text x="142" y="14" font-family="'Space Grotesk', monospace" font-size="11" fill="#ffffff">ROAS (4.6x)</text>
+    </g>
+
+    <!-- Grid lines -->
+    <line x1="35" y1="100" x2="1045" y2="100" stroke="#251215" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="35" y1="165" x2="1045" y2="165" stroke="#251215" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="35" y1="230" x2="1045" y2="230" stroke="#251215" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="35" y1="295" x2="1045" y2="295" stroke="#251215" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="35" y1="345" x2="1045" y2="345" stroke="#3d191e" stroke-width="1.5"/>
+
+    <!-- Area Fills -->
+    <path d="M 60 345 L 60 310 C 180 290, 260 270, 380 220 C 500 170, 620 190, 740 140 C 860 90, 940 110, 1020 80 L 1020 345 Z" fill="url(#areaFill)"/>
+    <path d="M 60 345 L 60 325 C 180 310, 260 295, 380 260 C 500 230, 620 220, 740 180 C 860 140, 940 130, 1020 110 L 1020 345 Z" fill="url(#cyanFill)"/>
+
+    <!-- Main Curves -->
+    <path d="M 60 310 C 180 290, 260 270, 380 220 C 500 170, 620 190, 740 140 C 860 90, 940 110, 1020 80" fill="none" stroke="url(#redGlow)" stroke-width="4" filter="url(#glow)"/>
+    <path d="M 60 325 C 180 310, 260 295, 380 260 C 500 230, 620 220, 740 180 C 860 140, 940 130, 1020 110" fill="none" stroke="url(#cyanGlow)" stroke-width="3"/>
+
+    <!-- Highlighted Data Points -->
+    <circle cx="380" cy="220" r="6" fill="#e51b24" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="740" cy="140" r="6" fill="#e51b24" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="1020" cy="80" r="7" fill="#e51b24" stroke="#ffffff" stroke-width="2" filter="url(#glow)"/>
+
+    <!-- Callout Tag at peak -->
+    <g transform="translate(930, 35)">
+      <rect width="115" height="34" rx="4" fill="#200d10" stroke="#e51b24" stroke-width="1.2"/>
+      <text x="12" y="16" font-family="'Space Grotesk', monospace" font-size="9" fill="#a69e94">PEAK ROAS</text>
+      <text x="12" y="28" font-family="'Oswald', sans-serif" font-size="13" font-weight="700" fill="#ffffff">4.62x RETURN</text>
+    </g>
+
+    <!-- X-Axis Labels -->
+    <text x="60" y="372" font-family="'Space Grotesk', monospace" font-size="11" fill="#716964">WEEK 1</text>
+    <text x="240" y="372" font-family="'Space Grotesk', monospace" font-size="11" fill="#716964">WEEK 3</text>
+    <text x="440" y="372" font-family="'Space Grotesk', monospace" font-size="11" fill="#716964">WEEK 5 (STAG OPTIMIZED)</text>
+    <text x="680" y="372" font-family="'Space Grotesk', monospace" font-size="11" fill="#716964">WEEK 8</text>
+    <text x="960" y="372" font-family="'Space Grotesk', monospace" font-size="11" fill="#e51b24" font-weight="700">SCALE &amp; RETARGET</text>
+  </g>
+</svg>
