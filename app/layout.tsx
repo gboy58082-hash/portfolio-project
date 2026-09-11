@@ -103,6 +103,11 @@ const structuredData = {
         'https://linkedin.com',
         'https://github.com/gboy58082-hash',
       ],
+      alumniOf: {
+        '@type': 'EducationalOrganization',
+        name: 'MDU Rohtak',
+        department: 'Bachelor of Computer Applications (BCA)',
+      },
       knowsAbout: [
         'Digital Marketing',
         'Search Engine Optimization (SEO)',
@@ -115,6 +120,9 @@ const structuredData = {
         'Google Analytics 4 (GA4)',
         'Content Strategy',
         'Social Media Growth',
+        'GeeksforGeeks Web Architecture & Computer Applications Fundamentals',
+        'Link Building & Organic Authority',
+        'Brand Mentions & Digital PR',
       ],
     },
     {

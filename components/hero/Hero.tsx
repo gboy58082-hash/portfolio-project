@@ -52,6 +52,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
               <span className="text-[#e51b24] drop-shadow-[0_0_35px_rgba(229,27,36,0.7)]">
                 MARKETING
               </span>
+              <span className="sr-only"> - Anshu | Digital Marketing & Performance SEO Specialist</span>
             </h1>
           </div>
 
