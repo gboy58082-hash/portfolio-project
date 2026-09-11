@@ -271,7 +271,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Rahul Sharma"
-                  className="w-full bg-[#140c0d] border border-[#261818] focus:border-[#e51b24] text-xs font-mono text-white px-4 py-3 rounded outline-none transition-colors"
+                  className="w-full bg-[#140c0d] border border-[#261818] focus:border-[#e51b24] text-base sm:text-xs font-mono text-white px-4 py-3 rounded outline-none transition-colors"
                 />
               </div>
 
@@ -287,7 +287,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="name@company.com"
-                  className="w-full bg-[#140c0d] border border-[#261818] focus:border-[#e51b24] text-xs font-mono text-white px-4 py-3 rounded outline-none transition-colors"
+                  className="w-full bg-[#140c0d] border border-[#261818] focus:border-[#e51b24] text-base sm:text-xs font-mono text-white px-4 py-3 rounded outline-none transition-colors"
                 />
               </div>
 
@@ -302,7 +302,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell me about the campaign, agency role, or e-commerce store..."
-                  className="w-full bg-[#140c0d] border border-[#261818] focus:border-[#e51b24] text-xs font-mono text-white px-4 py-3 rounded outline-none transition-colors resize-none"
+                  className="w-full bg-[#140c0d] border border-[#261818] focus:border-[#e51b24] text-base sm:text-xs font-mono text-white px-4 py-3 rounded outline-none transition-colors resize-none"
                 />
               </div>
 

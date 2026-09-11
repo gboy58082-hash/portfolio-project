@@ -132,6 +132,8 @@ export default function StudioScene() {
       <Canvas
         camera={{ position: [0, 2, 8], fov: 45 }}
         gl={{ alpha: true, antialias: true }}
+        dpr={[1, 1.5]}
+        style={{ touchAction: 'pan-y' }}
       >
         <ambientLight intensity={0.7} />
         <directionalLight position={[5, 10, 5]} intensity={1.8} color="#ffffff" />

@@ -13,7 +13,7 @@ export default function HeroScene() {
       <Canvas
         camera={{ position: [0, 0, 13], fov: 48 }}
         gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
       >
         <Suspense fallback={null}>
           <ambientLight intensity={0.7} />
