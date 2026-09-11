@@ -72,6 +72,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.svg',
   },
+  verification: {
+    google: 'googlea948694ece471cc3',
+  },
   category: 'Digital Marketing & SEO',
 };
 
