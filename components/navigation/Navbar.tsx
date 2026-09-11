@@ -5,6 +5,15 @@ import Link from 'next/link';
 import { Menu, X, ChevronRight, FileText, Star } from 'lucide-react';
 import MobileMenu from './MobileMenu';
 
+function YoutubeIcon({ size = 13 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+      <polygon points="10 15 15 12 10 9 10 15" fill="currentColor" />
+    </svg>
+  );
+}
+
 interface NavbarProps {
   onOpenResume?: () => void;
 }
@@ -62,12 +71,13 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
             <span>NEW DELHI, INDIA</span>
             <span className="text-zinc-600">|</span>
             <a
-              href="https://youtube.com/@anshugrowth"
+              href="https://youtube.com/@nextgenmarketing-q1b?si=jjW4_LqNbZthXP5K"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#e51b24] transition-colors"
+              className="hover:text-[#e51b24] transition-colors flex items-center gap-1.5"
             >
-              YOUTUBE ↗
+              <YoutubeIcon size={13} />
+              <span>YOUTUBE ↗</span>
             </a>
             <span className="text-zinc-600">|</span>
             <a

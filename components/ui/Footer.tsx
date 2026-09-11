@@ -149,7 +149,18 @@ export default function Footer({ onOpenResume }: FooterProps) {
             <span>+91 9667461227</span>
             <span>New Delhi, India</span>
             <span className="text-zinc-600 hidden sm:inline">|</span>
-            <a href="https://youtube.com/@anshugrowth" target="_blank" rel="noopener noreferrer" className="hover:text-[#e51b24] transition-colors">YouTube ↗</a>
+            <a
+              href="https://youtube.com/@nextgenmarketing-q1b?si=jjW4_LqNbZthXP5K"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#e51b24] transition-colors inline-flex items-center gap-1.5"
+            >
+              <svg width={13} height={13} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#e51b24]">
+                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                <polygon points="10 15 15 12 10 9 10 15" fill="currentColor" />
+              </svg>
+              <span>YouTube ↗</span>
+            </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#e51b24] transition-colors">LinkedIn ↗</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#e51b24] transition-colors">Instagram ↗</a>
           </div>

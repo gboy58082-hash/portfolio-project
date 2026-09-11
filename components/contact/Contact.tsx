@@ -160,7 +160,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
 
               {/* YouTube Channel */}
               <a
-                href="https://youtube.com/@anshugrowth"
+                href="https://youtube.com/@nextgenmarketing-q1b?si=jjW4_LqNbZthXP5K"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between p-3.5 rounded-lg bg-[#140c0d] border border-[#261818] hover:border-[#e51b24]/60 transition-all group"
@@ -172,7 +172,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
                   <div>
                     <div className="font-mono text-[10px] text-[#e51b24] font-bold uppercase tracking-wider">YOUTUBE CHANNEL</div>
                     <span className="text-xs sm:text-sm font-mono text-white font-medium group-hover:text-[#e51b24] transition-colors">
-                      @AnshuMarketing &bull; Video Case Studies
+                      @NextGenMarketing &bull; Video Case Studies
                     </span>
                   </div>
                 </div>

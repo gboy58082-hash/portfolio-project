@@ -102,7 +102,7 @@ const structuredData = {
         addressCountry: 'India',
       },
       sameAs: [
-        'https://youtube.com/@anshugrowth',
+        'https://youtube.com/@nextgenmarketing-q1b?si=jjW4_LqNbZthXP5K',
         'https://linkedin.com',
         'https://github.com/gboy58082-hash',
       ],
