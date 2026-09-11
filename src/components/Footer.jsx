@@ -80,7 +80,7 @@ export default function Footer() {
           }}
         >
           <div>
-            © {new Date().getFullYear()} ANSHU. Built for high performance & measurable ROI.
+            © 2026 portfolio
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-emerald)' }} />

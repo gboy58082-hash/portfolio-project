@@ -155,7 +155,7 @@ export default function Footer({ onOpenResume }: FooterProps) {
           </div>
 
           <div className="flex items-center gap-3">
-            <span>&copy; 2026 ANSHU. ALL RIGHTS RESERVED.</span>
+            <span>&copy; 2026 portfolio</span>
             <div className="w-6 h-6 rounded bg-[#e51b24] text-black font-black flex items-center justify-center text-xs font-['Bebas_Neue',sans-serif]">
               A*
             </div>
