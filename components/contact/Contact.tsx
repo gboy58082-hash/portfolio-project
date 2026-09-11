@@ -12,9 +12,6 @@ import {
   Check,
   ChevronRight,
   Star,
-  Lock,
-  Eye,
-  EyeOff,
   Loader2,
   AlertCircle,
 } from 'lucide-react';
@@ -48,22 +45,17 @@ function InstagramIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-import ForgotPasswordModal from './ForgotPasswordModal';
-
 interface ContactProps {
   onOpenResume?: () => void;
 }
 
 export default function Contact({ onOpenResume }: ContactProps) {
   const [copied, setCopied] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [isForgotModalOpen, setIsForgotModalOpen] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    password: '',
     message: '',
   });
 
@@ -88,7 +80,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
         throw new Error(data.error || 'Failed to transmit message.');
       }
       setStatus('success');
-      setFormData({ name: '', email: '', password: '', message: '' });
+      setFormData({ name: '', email: '', message: '' });
     } catch (err: any) {
       setStatus('error');
       setErrorMessage(
@@ -256,7 +248,7 @@ export default function Contact({ onOpenResume }: ContactProps) {
           </div>
         </div>
 
-        {/* Message Form with Password */}
+        {/* Message Form */}
         <div className="lg:col-span-6">
           <div className="p-8 rounded-xl bg-[#0f0a0b] border border-[#261818] shadow-2xl text-left">
             <div className="flex items-center gap-2 mb-6 pb-3 border-b border-[#261818]">
@@ -297,69 +289,6 @@ export default function Contact({ onOpenResume }: ContactProps) {
                   placeholder="name@company.com"
                   className="w-full bg-[#140c0d] border border-[#261818] focus:border-[#e51b24] text-xs font-mono text-white px-4 py-3 rounded outline-none transition-colors"
                 />
-              </div>
-
-              {/* Password / Access Key Field */}
-              <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <label className="font-mono text-xs text-white uppercase tracking-wider font-bold flex items-center gap-1.5">
-                    <Lock size={12} className="text-[#e51b24]" />
-                    <span>PASSWORD / ACCESS KEY</span>
-                  </label>
-                  <div className="flex items-center gap-2.5">
-                    <button
-                      type="button"
-                      onClick={() => setIsForgotModalOpen(true)}
-                      className="text-[11px] font-mono text-[#e51b24] hover:text-[#ff3a44] hover:underline cursor-pointer transition-colors font-bold"
-                    >
-                      FORGOT?
-                    </button>
-                    <span className="text-zinc-700">|</span>
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="text-[11px] font-mono text-zinc-400 hover:text-[#e51b24] flex items-center gap-1 cursor-pointer transition-colors"
-                    >
-                      {showPassword ? (
-                        <>
-                          <EyeOff size={13} />
-                          <span>HIDE</span>
-                        </>
-                      ) : (
-                        <>
-                          <Eye size={13} />
-                          <span>SHOW</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-                <div className="relative">
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    required
-                    autoComplete="current-password"
-                    suppressHydrationWarning
-                    value={formData.password}
-                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                    placeholder="Enter security password or client code"
-                    className="w-full bg-[#140c0d] border border-[#261818] focus:border-[#e51b24] text-xs font-mono text-white px-4 py-3 rounded outline-none transition-colors pr-10"
-                  />
-                  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-600 pointer-events-none">
-                    <Lock size={14} />
-                  </div>
-                </div>
-                <div className="flex justify-between items-center mt-1.5 px-0.5">
-                  <span className="text-[10px] font-mono text-zinc-500">Security verification required</span>
-                  <button
-                    type="button"
-                    onClick={() => setIsForgotModalOpen(true)}
-                    className="text-[11px] font-mono text-zinc-400 hover:text-[#e51b24] flex items-center gap-1 cursor-pointer transition-colors"
-                  >
-                    <span>Forgot Password?</span>
-                    <span className="text-[#e51b24] font-bold underline">Get OTP Code &rarr;</span>
-                  </button>
-                </div>
               </div>
 
               <div>
@@ -412,17 +341,6 @@ export default function Contact({ onOpenResume }: ContactProps) {
           </div>
         </div>
       </div>
-
-      {/* Forgot Password Modal with Automatic OTP */}
-      <ForgotPasswordModal
-        isOpen={isForgotModalOpen}
-        onClose={() => setIsForgotModalOpen(false)}
-        initialEmail={formData.email}
-        onPasswordReset={(newPass) => {
-          setFormData((prev) => ({ ...prev, password: newPass }));
-          setStatus('idle');
-        }}
-      />
     </section>
   );
 }
