@@ -26,7 +26,7 @@ export default function Footer({ onOpenResume }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#050304] border-t border-[#261818] pt-4 sm:pt-5 pb-2 text-left">
+    <footer className="relative z-20 bg-[#050304] border-t border-[#261818] pt-4 sm:pt-5 pb-0 text-left">
       <div className="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12">
         {/* Top Branding matching the giant RDR2 Footer Title */}
         <div className="pb-4 border-b border-[#261818] flex flex-wrap items-center justify-between gap-4">
@@ -164,8 +164,8 @@ export default function Footer({ onOpenResume }: FooterProps) {
       </div>
 
       {/* Dedicated Centered Bottom Bar at the absolute end of the page */}
-      <div className="mt-4 pt-3 pb-3 border-t border-[#261818] bg-[#020102] text-center w-full">
-        <p className="font-mono text-xs sm:text-sm text-[#ded9d2] font-bold tracking-widest uppercase">
+      <div className="mt-6 py-4 border-t-2 border-[#e51b24]/40 bg-[#000000] text-center w-full relative z-30 shadow-2xl">
+        <p className="font-mono text-sm sm:text-base text-white font-black tracking-widest uppercase">
           &copy; 2026 portfolio
         </p>
       </div>

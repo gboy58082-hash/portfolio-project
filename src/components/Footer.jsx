@@ -88,6 +88,34 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Dedicated Centered Bottom Bar */}
+      <div
+        style={{
+          marginTop: '1.5rem',
+          padding: '1rem 0',
+          borderTop: '2px solid rgba(229, 27, 36, 0.4)',
+          background: '#000000',
+          textAlign: 'center',
+          width: '100%',
+          position: 'relative',
+          zIndex: 30,
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            fontFamily: 'var(--font-mono, monospace)',
+            fontSize: '0.9rem',
+            color: '#ffffff',
+            fontWeight: 800,
+            letterSpacing: '2px',
+            textTransform: 'uppercase',
+          }}
+        >
+          © 2026 portfolio
+        </p>
+      </div>
     </footer>
   );
 }
