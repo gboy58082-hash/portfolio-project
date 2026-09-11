@@ -7,8 +7,16 @@ const otpStore = new Map<string, { otp: string; expiresAt: number }>();
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { action, email, otp, newPassword } = body;
+    let body: any;
+    try {
+      body = await req.json();
+    } catch (e: any) {
+      return NextResponse.json(
+        { error: 'Invalid JSON body in request.' },
+        { status: 400 }
+      );
+    }
+    const { action, email, otp, newPassword } = body || {};
 
     if (!email) {
       return NextResponse.json(
@@ -139,7 +147,7 @@ export async function POST(req: Request) {
   } catch (error: any) {
     console.error('OTP Route Error:', error);
     return NextResponse.json(
-      { error: 'Failed to process request. Please try again later.' },
+      { error: error?.message || 'Failed to process request. Please try again later.' },
       { status: 500 }
     );
   }
